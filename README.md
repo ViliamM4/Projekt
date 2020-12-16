@@ -1,2 +1,2 @@
 # Projekt
-Najmenšie/najväčšie 
+Najmenšie/najväčšie číslo zo vstupu
