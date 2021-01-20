@@ -1,24 +1,59 @@
 # Projekt
+import java.util.Scanner;
+
 public class main {
 
-public static void main(String[] args) {
-
-    int[] a = {4,12,45,9,5};
-    int max = 0;
-    int min = max;
-
-    for (int i = 0, j = 0; i<a.length; i++){
-        if (a[i] > max){
-            max = a[i];
-
+static Scanner sc = new Scanner(System.in);
+    
+    static int max = Integer.MIN_VALUE, min = Integer.MAX_VALUE;
+    static int a[];
+    static int size;
+    
+    static void MaxMin(int i, int j)
+    {
+        int max1, min1, mid;
+        if(i==j)
+        {
+            max = min = a[i];
         }
-        if (a[j] < max){
-            min = a[j];
+        else
+        {
+            if(i == j-1){   
+                if(a[i] < a[j]){
+                    max = a[j];
+                    min = a[i];
+                }
+                else{
+                    max = a[i];
+                    min = a[j];
+                }
+            }
+            
+            else{   
+                mid = (i+j)/2;
+                MaxMin(i, mid);
+                
+                max1 = max;   
+                min1 = min;
+                MaxMin(mid+1, j);
+                if(max < max1) max = max1;
+                if(min > min1) min = min1;
+            }
         }
-
     }
-
-    System.out.println("The maximum number in the array is: " + max);
-    System.out.println("The minimum number in the array is: " + min);
- }
+    
+    public static void inputArray()
+    {
+        for(int i=0; i< size; i++){
+            a[i] = sc.nextInt();
+        }
+    }
+    public static void main(String[] args) {
+        System.out.println("Vložte veľkosť pola: ");
+        size = sc.nextInt();
+        a = new int[size];
+        inputArray();
+        MaxMin(0, size-1);
+        System.out.println("Maximum: "+max+"\nMinimum: "+min);
+    }
 }
