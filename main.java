@@ -54,6 +54,6 @@ static Scanner sc = new Scanner(System.in);
         a = new int[size];
         inputArray();
         MaxMin(0, size-1);
-        System.out.println("Maximum: "+max+"\nMinimum: "+min);
+        System.out.println("Maximum: "+max+"\n Minimum: "+min);
     }
 }
