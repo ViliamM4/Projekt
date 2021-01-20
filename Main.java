@@ -20,7 +20,7 @@ public static void main(String[] args) {
 
     }
 
-    System.out.println("The maximum number in the array is: " + max);
-    System.out.println("The minimum number in the array is: " + min);
+    System.out.println("Maximum v poli: " + max);
+    System.out.println("Minimum v poli: " + min);
  }
 }
